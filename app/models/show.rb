@@ -5,11 +5,11 @@ class Show < ActiveRecord::Base
   end
   
   def self.most_popular_show
-    Show.order(rating: :desc).limit(1)[0]
+    self.order(rating: :desc).limit(1)[0]
   end
   
   def self.lowest_rating
-    Show.minimum(:rating)
+    self.minimum(:rating)
   end
   
   def self.least_popular_show
