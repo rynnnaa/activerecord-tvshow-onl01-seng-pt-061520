@@ -13,7 +13,7 @@ class Show < ActiveRecord::Base
   end
   
   def self.least_popular_show
-    Show.minimum(:rating)
+    Show.irder(rating: :asc_).limit(1)[0]
   end
   
   def self.popular_shows
